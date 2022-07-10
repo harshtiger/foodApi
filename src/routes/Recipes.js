@@ -1,6 +1,6 @@
 
 const { Router } = require("express");
-
+require("dotenv").config();
 const {getAllRecipes} = require('../controllers/controllers.js')
  
 const router = Router();
