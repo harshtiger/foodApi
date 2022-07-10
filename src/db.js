@@ -17,7 +17,7 @@ const sequelize = new Sequelize(
     }
   },
    
-  }
+  } // owo
 );
 const basename = path.basename(__filename);
 
