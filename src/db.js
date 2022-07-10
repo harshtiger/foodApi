@@ -5,11 +5,18 @@ const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/`,
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/d9emdpm005v137`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-    ssl: { rejectUnauthorized: false }
+    dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true, // This will help you. But you will see nwe error
+      rejectUnauthorized: false // This line will fix new error
+    }
+  },
+   
   }
 );
 const basename = path.basename(__filename);
